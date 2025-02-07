@@ -8,7 +8,7 @@ public class AddressBook
 {
     public static File contactsDir = new File("contacts");
     private Map<String, String> addressItem;
-    private final String FILE_NAME = "contacts.txt";
+    private final String contactsFile = "contacts.txt";
 
     public AddressBook()
     {
@@ -25,7 +25,7 @@ public class AddressBook
 
     public void Load()
     {
-        File file = new File(contactsDir, FILE_NAME);
+        File file = new File(contactsDir, contactsFile);
         if (file.exists())
         {
             try (Scanner sc = new Scanner(file))
@@ -54,7 +54,7 @@ public class AddressBook
 
     public void Save()
     {
-        File file = new File(contactsDir, FILE_NAME);
+        File file = new File(contactsDir, contactsFile);
         try (PrintWriter pw = new PrintWriter(file)) {
             for (Map.Entry<String, String> entry : addressItem.entrySet()) {
                 pw.println(entry.getKey() + " : " + entry.getValue());
